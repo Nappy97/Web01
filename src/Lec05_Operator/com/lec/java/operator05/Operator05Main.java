@@ -13,15 +13,29 @@ package Lec05_Operator.com.lec.java.operator05;
  */
 public class Operator05Main {
 
-	public static void main(String[] args) {
-		System.out.println("연산자 5 - 관계(비교) 연산자   Equality and Relational Operators");
-		System.out.println("<, >, <=, >=, ==, !=");
+    public static void main(String[] args) {
+        System.out.println("연산자 5 - 관계(비교) 연산자   Equality and Relational Operators");
+        System.out.println("<, >, <=, >=, ==, !=");
 
-		// TODO
-		
-		
-		System.out.println("\n프로그램 종료");
-	} // end main()
+        System.out.println(10 < 20);
+        System.out.println(10 > 20);
+
+        boolean b = 1.2 <= 2.3;
+        System.out.println("b = " + b);
+
+        int n1 = 11;
+        int n2 = 12;
+
+        System.out.println(n1 != n2);
+        System.out.println(n1 == n2);
+
+        double d1 = 3.2;
+        double d2 = 12.3 / 4.1 + 0.2;
+        System.out.println(d1 == d2);
+
+
+        System.out.println("\n프로그램 종료");
+    } // end main()
 } // end class
 
 
