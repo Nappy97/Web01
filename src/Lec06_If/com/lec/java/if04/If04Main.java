@@ -7,13 +7,25 @@ package Lec06_If.com.lec.java.if04;
  */
 public class If04Main {
 
-	public static void main(String[] args) {
-		System.out.println("if 문과 삼항 연산자");
-		
-		// TODO
+    public static void main(String[] args) {
+        System.out.println("if 문과 삼항 연산자");
 
-		System.out.println("\n프로그램 종료");
-	} // end main()
+        int num1 = 100;
+        int num2 = 123;
+        int big;
+
+        big = (num1 > num2) ? num1 : num2;
+        System.out.println("더 큰 수 : " + big);
+
+        System.out.println();
+        int num3 = 10;
+        int num4 = 20;
+        int diff = (num3 > num4) ? (num3 - num4) : (num4 - num3);
+        System.out.println("두 수의 차: " + diff);
+
+
+        System.out.println("\n프로그램 종료");
+    } // end main()
 
 } // end class
 
