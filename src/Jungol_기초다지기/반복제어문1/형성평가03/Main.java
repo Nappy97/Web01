@@ -11,6 +11,29 @@ import java.util.Scanner;
         avg : 47.8*/
 public class Main {
 
-    Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int num;
+        int total = 0;  // 누적합산
+        int count = 0;  // 합산한 숫자 개수
+
+        while (true) {
+            num = sc.nextInt();
+            if (num < 0 || 100 < num) {
+                break;
+            }  // 무한루프 종료 조건
+
+            total += num;
+            count++;
+        }
+
+        // 결과 출력
+        System.out.println("sum : " + total);
+        System.out.printf("avg : %.1f", (double) total / count);
+
+
+        sc.close();
+    }
 
 }
