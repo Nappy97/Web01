@@ -1,5 +1,6 @@
 package Lec11_Array.com.lec.java.array13;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,12 +16,25 @@ import java.util.List;
  */
 public class Array13Main {
 
-	public static void main(String[] args) {
-		System.out.println("java.util.Arrays 클래스");
-	
-		// TODO
-		
-		System.out.println("\n프로그램 종료");
-	} // end main
+    public static void main(String[] args) {
+        System.out.println("java.util.Arrays 클래스");
+
+        int[] arr = {10, 20, 30, 40, 50};
+
+        System.out.println(Arrays.toString(arr));
+
+        int[] arr7 = {8, 9, 3, 5, 1, 2};
+        System.out.println(Arrays.toString(arr7));
+        Arrays.sort(arr7);
+        System.out.println(Arrays.toString(arr7));
+
+        int[] arr2 = Arrays.copyOf(arr, 3);
+        System.out.println(Arrays.toString(arr2));
+
+        int[] arr4 = Arrays.copyOfRange(arr, 0, 2);
+        System.out.println(Arrays.toString(arr4));
+
+        System.out.println("\n프로그램 종료");
+    } // end main
 
 } // end class
