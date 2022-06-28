@@ -15,16 +15,76 @@ package Lec16_OOP.com.lec.java.oop05;
 
 public class Interface01Main {
 
-	public static void main(String[] args) {
-		System.out.println("인터페이스(interface)");
-		
-		// TODO
+    public static void main(String[] args) {
+        System.out.println("인터페이스(interface)");
 
-		System.out.println("\n 프로그램 종료");
-	} // end main()
+        TestImpl test1 = new TestImpl();
+        test1.testAAA();
+        test1.testBBB();
+
+        TestImpl2 test2 = new TestImpl2();
+        test2.testAAA();
+        test2.testBBB();
+        test2.testCCC();
+
+        System.out.println(TestInterface.MIN);
+        System.out.println(TestInterface2.MIN);
+
+        System.out.println("\n 프로그램 종료");
+    } // end main()
 
 } // end class
 
+interface TestInterface {
+    // 모든 멤버변수가 public static final 로 선언되어야
+    public static final int MIN = 0;
+    int MAX = 100;
+    public static final String JAVA_STRING = "Java";
+
+    // 모든 메소드는 public abstract로 선언되어야
+    public abstract void testAAA();
+
+    void testBBB();
+
+}
+
+interface TestInterface2{
+    public static final int MIN = 1;
+
+    public abstract void testAAA();
+    public abstract int testCCC();
+}
+
+class TestImpl implements TestInterface {
+
+    @Override
+    public void testAAA() {
+        System.out.println("testAAA");
+    }
+
+    @Override
+    public void testBBB() {
+        System.out.println("testBBB");
+    }
+}
+
+class TestImpl2 implements TestInterface, TestInterface2{
+
+    @Override
+    public int testCCC() {
+        return 0;
+    }
+
+    @Override
+    public void testAAA() {
+        System.out.println("testAAA");
+    }
+
+    @Override
+    public void testBBB() {
+        System.out.println("testBBB");
+    }
+}
 
 
 

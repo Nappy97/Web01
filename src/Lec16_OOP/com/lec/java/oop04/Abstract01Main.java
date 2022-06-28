@@ -22,12 +22,42 @@ public class Abstract01Main {
 	public static void main(String[] args) {
 		System.out.println("추상 클래스(abstract class)");
 		
-		// TODO
+		TestClass test2 = new TestClass();
+		test2.test = 100;
+		System.out.println(test2.testMethod());
+
+		TestAbstract test3 = new TestClass();
+		test3.test = 999;
+		System.out.println(test3.testMethod());
 		
 		System.out.println("\n 프로그램 종료");
 	} // end main()
 
 } // end class
+
+abstract class TestAbstract{
+	int test;
+
+	public int getTest(){
+		return test;
+	}
+
+	// 추상메소드
+	public abstract int testMethod();
+}
+
+class TestClass extends TestAbstract{
+
+	@Override
+	public int testMethod() {
+		return test;
+	}
+}
+
+abstract class TestClass2 extends TestAbstract{
+	int number;
+
+}
 
 
 
