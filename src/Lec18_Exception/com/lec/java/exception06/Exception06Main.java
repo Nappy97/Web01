@@ -14,21 +14,38 @@ package Lec18_Exception.com.lec.java.exception06;
  */
 public class Exception06Main {
 
-	public static void main(String[] args) /* TODO */ {
-		System.out.println("throws");
-		
-		System.out.println();
-		TestClass test = new TestClass();
-		int result = test.divide(123, 0);
-		System.out.println("result = " + result);
-		
-		
-		// TODO
-		
-		
-		System.out.println("프로그램 종료...");
+    public static void main(String[] args) /*throws Exception*/ {
+        System.out.println("throws");
 
-	} // end main()
+        System.out.println();
+        TestClass test = new TestClass();
+        int result = test.divide(123, 0);
+        System.out.println("result = " + result);
+
+
+        System.out.println();
+        try {
+            test.divide2(123, 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        test.divide2(111, 0);
+
+        test.divide3(222,0);
+
+        try{
+            Thread.sleep(1000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        Integer.parseInt("100");
+
+
+        System.out.println("프로그램 종료...");
+
+    } // end main()
 
 } // end class Exception06Main
 

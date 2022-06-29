@@ -3,13 +3,21 @@ package Lec18_Exception.com.lec.java.exception07;
 // 우리가 만드는 예외 클래스
 // Exception 또는 RuntimeException 클래스를 상속 받아서 만듬
 
-// TODO : Excettion 을 상속받아 예외 클래스 정의하기
-public class ScoreException  {
+import Lec13_Class.com.lec.java.class06.Score;
 
-	// 생성자
-	// TODO
-	
-	
+// TODO : Excettion 을 상속받아 예외 클래스 정의하기
+public class ScoreException extends Exception {
+
+    // 생성자
+    public ScoreException() {
+        super("점수 입력 오류");   // 부모 클래스의 생성자 호출
+        // Exception(String message) 생성자가 호출됨
+    }
+
+    public ScoreException(String msg) {
+        super(msg);
+    }
+
 } // end class ScoreException
 
 

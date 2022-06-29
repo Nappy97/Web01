@@ -1,15 +1,18 @@
 package Lec18_Exception.com.lec.java.exception06;
 
 public class TestClass {
-	
+
 	// 메소드를 설계를 할 때
 	// 예외 처리를 메소드 내부에서 (try ~ catch) 로 처리
 	public int divide(int x, int y) {
 		int result = 0;
 
 		// TODO : try ~ catch 처리하기
-		
-		result = x / y;
+		try {
+			result = x / y;
+		} catch(ArithmeticException ex) {
+			System.out.println(ex.getMessage());
+		}
 
 		return result;
 	} // end divide()
@@ -23,7 +26,7 @@ public class TestClass {
 	
 	
 	// TODO : throws 사용하기
-	public int divide2(int x, int y)  {
+	public int divide2(int x, int y)  throws Exception{
 		return x / y;
 	} // end divide2()
 	
@@ -32,7 +35,7 @@ public class TestClass {
 	// 굳이 호출하는 쪽에서 매번 예외 처리 할 필요는 없다
 	
 	// TODO : throws RuntimeException 사용하기
-	public int divide3(int x, int y){
+	public int divide3(int x, int y) throws RuntimeException{
 		return x / y;
 	} // end divide3()
 
