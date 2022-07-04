@@ -1,3 +1,4 @@
+/*
 package Jungol_기초다지기.문자열1.자가진단4;
 
 import java.util.Scanner;
@@ -30,3 +31,4 @@ public class Main {
 	}
 
 }
+*/
