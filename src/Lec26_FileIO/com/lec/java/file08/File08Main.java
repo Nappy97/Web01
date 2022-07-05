@@ -1,5 +1,7 @@
 package Lec26_FileIO.com.lec.java.file08;
 
+import java.io.*;
+
 /* Object Filter Stream
  Program <=== ObjectInputStream <=== FileInputStream <=== File
  Program ===> ObjectOutputStream ===> FileOutputStream ===> File
@@ -20,18 +22,61 @@ java.lang.Object
  transient 키워드를 사용
 */
 public class File08Main {
-	
-	public static final String FILEPATH  = "temp/member.dat";
 
-	public static void main(String[] args) {
-		System.out.println("Object Filter Stream");
-		
+    public static final String FILEPATH = "temp/member.dat";
 
-		// TODO
-		
-		System.out.println("\n프로그램 종료");
-		
-	} // end main()
+    public static void main(String[] args) {
+        System.out.println("Object Filter Stream");
+
+
+        try (
+                OutputStream out = new FileOutputStream(FILEPATH);
+                ObjectOutputStream oout = new ObjectOutputStream(out);
+
+                InputStream in = new FileInputStream(FILEPATH);
+                ObjectInputStream oin = new ObjectInputStream(in);
+        ) {
+            // 파일에 쓸 데이터 객체 생성
+            Member m1 = new Member("root", "root1234");
+            Member m2 = new Member("guest", "guest");
+            Member m3 = new Member("admin", "admin123456");
+
+            oout.writeObject(m1);
+            oout.writeObject(m2);
+            oout.writeObject(m3);
+
+            // 파일에서 Object 읽어오기
+            Member dataRead;
+
+/*            // 방법1: 매번 readObject() 호출
+            dataRead = (Member) oin.readObject();
+            dataRead.displayInfo();
+            dataRead = (Member) oin.readObject();
+            dataRead.displayInfo();
+            dataRead = (Member) oin.readObject();
+            dataRead.displayInfo();*/
+
+            // 방법2 : 무한루프로 readObject() 호출하고  EOFException 으로 잡기.
+            // EOFException 으로 끝까지 read한것을 체크
+            // EOF : End Of File
+            while (true){
+                dataRead = (Member) oin.readObject();
+                dataRead.displayInfo();
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("파일 끝까지 읽었습니다.");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\n프로그램 종료");
+
+    } // end main()
 
 } // end class
 

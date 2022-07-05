@@ -25,14 +25,47 @@ package Lec26_FileIO.com.lec.java.file11;
 */
 
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class File11Main {
-	public static void main(String[] args) {
-		System.out.println("FileReader / FileWriter");
-		
-		// TODO
-		
-		
-		System.out.println("\n프로그램 종료");
-		
-	} // end main()
+    public static void main(String[] args) {
+        System.out.println("FileReader / FileWriter");
+
+        String src = "temp/FileData.txt";
+        String dst = "temp/FileData.txt";
+
+        try (
+                FileWriter fw = new FileWriter(dst);
+                FileReader fr = new FileReader(src);
+        ) {
+            String str = "안녕하세요";
+            char[] charArr = {'J', 'A', 'V', 'A'};
+            // 저장은 시스템 인코딩 상태에 따라 저장됨
+            // UTF-8의 경우 '안녕하세요' 한글 글자는 15byte로 저장됨.
+
+
+            fw.write(str);
+            fw.write(charArr);
+            fw.flush();
+
+            // 읽기 read
+            char[] buff = new char[100];
+
+            int charsRead = fr.read(buff);
+            for (int i = 0;i<charsRead;i++){
+                System.out.println(buff[i]);
+            }
+            System.out.println();
+            System.out.println("읽은 문자개수: " + charsRead);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("\n프로그램 종료");
+
+    } // end main()
 } // end class
