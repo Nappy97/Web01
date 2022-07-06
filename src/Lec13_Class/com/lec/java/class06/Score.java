@@ -1,45 +1,35 @@
 package Lec13_Class.com.lec.java.class06;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+//@Getter  // getter 생성
+//@Setter  // setter 생성
+//@ToString  // toString() 생성
+@NoArgsConstructor   // 기본생성자 생성
+@AllArgsConstructor  // 매개변수 받는 생성자 생성
+@RequiredArgsConstructor // @NonNull 이 붙은 필드 생성자
+@Data  // getter, setter, toString, equals, hashCode..
+
+@Builder   // builder 패턴 제공
 public class Score {
-	// 멤버변수 : 
-	// 	학생 이름 String
-	// 	국어점수 int 
-	// 	수학점수 int
-	// 	영어점수 int
-	// TODO
-	
-	// 생성자: 멤버 변수 초기화
-	//   1) 디폴트 생성자
-	// TODO
-	
-	//   2) 매개변수 받는 생성자 (이름, 국어점수, 수학점수, 영어점수)
-	// TODO
-	
-	// 메소드
-	// 총점계산 메소드
-	// 메소드이름 :calcTotal()
-	// 리턴타입 : int
-	// TODO
-	
-	
-	// 평균계산 메소드
-	// 메소드 이름 : calcAvg()
-	// 리턴타입 : double
-	// TODO
-	
-	// 메소드
-	// 이름: displayInfo()
-	// 리턴: void
-	// 매개변수: none
-	//   학생의 이름, 국어, 영어, 수학 점수 출력
-	// TODO
-	
-	
-	
+
+    @NonNull
+    private String name;
+    @NonNull
+    private Integer kor;
+    private Integer eng;
+    private Integer math;
+
+
 }
-
-
-
 
 
 
